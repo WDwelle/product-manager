@@ -1,21 +1,24 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios';
+import {Link, Switch, Route, Redirect} from 'react-router-dom';
+import Main from './components/main';
 import './App.css';
 
 function App() {
 
-  const [data, setData] = useState({})
-
-  useEffect( () => {
-    axios.get("http://localhost:8000/api/products")
-      .then( res => console.log(res.data))
-      .then( err => console.log(err))
-  },[])
-
   return (
     <div className="App">
-      <h1>Products</h1>
-      <hr />
+      <h1>Product Manager</h1>
+
+      <Switch>
+        {/*Main page*/}
+        <Route path="/products">
+          <Main/>
+          </Route>
+
+        <Route path="/">
+          <Redirect to="/products"/>{/* redirects back to home */}
+        </Route>
+
+      </Switch>
 
     </div>
   );
