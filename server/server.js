@@ -9,7 +9,7 @@ app.use(cors());
 
 //connect mongo
 require("./config/mongoose.config");
-
+//API routes
 require("./routes/product.routes")(app);
 
 //port listener
