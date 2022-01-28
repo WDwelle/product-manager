@@ -1,7 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-app.use(cors());
-const port = 8000;
+const PORT = 8000;
 
-app.listen(port, () => console.log('Listening on port: ${port}'));
+//middleware
+app.use(express.json(), express.urlencoded({extended:true}));
+app.use(cors());
+
+//connect mongo
+require("./config/mongoose.config");
+
+require("./routes/product.routes")(app);
+
+//port listener
+app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
