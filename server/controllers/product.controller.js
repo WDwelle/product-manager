@@ -1,4 +1,12 @@
 const Product = require('../models/product.model')
+
+//===CREATE===\\
+module.exports.createNewProduct = (req, res) => {
+    Product.create(req.body)
+        .then(newlyCreatedProduct => res.json({message: "success", product: newlyCreatedProduct}))
+        .catch(err => res.json({ message: "something went wrong", error: err}));
+}
+
 //===READ===\\
 module.exports.findAllProducts = (req, res) => {
     Product.find()
@@ -11,12 +19,7 @@ module.exports.findOneSingleProduct = (req, res) => {
         .then(oneSingleProduct => res.json({message: "success", product : oneSingleProduct}))
         .catch(err => res.json({ message: "something went wrong", error: err}));
 }
-//===CREATE===\\
-module.exports.createNewProduct = (req, res) => {
-    Product.create(req.body)
-        .then(newlyCreatedProduct => res.json({message: "success", product: newlyCreatedProduct}))
-        .catch(err => res.json({ message: "something went wrong", error: err}));
-}
+
 //===UPDATE===\\
 module.exports.updateExistingProduct = (req, res) => {
     Product.findOneAndUpdate(
@@ -27,6 +30,7 @@ module.exports.updateExistingProduct = (req, res) => {
         .then(updatedProduct => res.json({message: "success", product: updatedProduct }))
         .catch(err => res.json({ message: 'Something went wrong', error: err }));
 }
+
 //===DELETE===\\
 module.exports.deleteAnExistingProduct = (req, res) => {
     Product.deleteOne({ _id: req.params.id })
