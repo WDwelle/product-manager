@@ -11,17 +11,18 @@ const Update = (props) => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState();
     const [description, setDescription] = useState("");
-
+    const [isSet, setIsSet] = useState(false);
     useEffect(() => {
         axios.get("http://localhost:8000/api/products/" + id)
             .then(res => {
-                console.log(res.data);
-                setTitle(res.data.title);
-                setPrice(res.data.price);
-                setDescription(res.data.description);
+                console.log(res.data.product);
+                setTitle(res.data.product.title);
+                setPrice(res.data.product.price);
+                setDescription(res.data.product.description);
+                setIsSet(true);
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [isSet])
 
 
     const update = (e) => {
