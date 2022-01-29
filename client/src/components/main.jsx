@@ -43,7 +43,7 @@ const Main = (props) => {
 
 //===DELETE===\\
     const deleteProduct = (deleteId) => {
-        axios.delete("http;//localhost:8000/api/products/" + deleteId)
+        axios.delete("http://localhost:8000/api/products/" + deleteId)
             .then( res => {
                 console.log("Success")
                 setProducts(products.filter( (product) => product._id !== deleteId))
