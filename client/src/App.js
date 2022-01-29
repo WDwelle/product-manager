@@ -1,6 +1,7 @@
-import {Link, Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import Main from './components/main';
 import './App.css';
+import ViewOne from './components/showOne';
 
 function App() {
 
@@ -16,6 +17,10 @@ function App() {
 
         <Route path="/">
           <Redirect to="/products"/>{/* redirects back to home */}
+        </Route>
+
+        <Route path="/products/:id">
+          <ViewOne/>
         </Route>
 
       </Switch>
