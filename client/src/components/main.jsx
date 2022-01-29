@@ -70,6 +70,7 @@ const Main = (props) => {
                     return <div key={i}>
                         <Link to={"/products/" + product._id}>{product.title}</Link>
                         <button onClick={ () => deleteProduct(product._id)}>DELETE</button>
+                        <Link to={"/products/" + product._id + "/update"}>Edit</Link>
                     </div>
                 })
             }
