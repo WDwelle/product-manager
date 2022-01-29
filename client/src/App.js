@@ -8,20 +8,22 @@ function App() {
   return (
     <div className="App">
       <h1>Product Manager</h1>
-
       <Switch>
+
+        {/*view one product*/}
+        <Route exact path="/products/:id">
+          <ViewOne/>
+        </Route>
+
         {/*Main page*/}
-        <Route path="/products">
+        <Route  exact path="/products">
           <Main/>
-          </Route>
+        </Route>
 
         <Route path="/">
           <Redirect to="/products"/>{/* redirects back to home */}
         </Route>
-        {/*view one product*/}
-        <Route path="/products/:id">
-          <ViewOne/>
-        </Route>
+        
 
       </Switch>
 
