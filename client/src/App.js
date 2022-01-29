@@ -18,7 +18,7 @@ function App() {
         <Route path="/">
           <Redirect to="/products"/>{/* redirects back to home */}
         </Route>
-
+        {/*view one product*/}
         <Route path="/products/:id">
           <ViewOne/>
         </Route>
