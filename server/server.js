@@ -10,7 +10,7 @@ app.use(cors());
 //connect mongo
 require("./config/mongoose.config");
 //API routes
-require("./routes/author.routes")(app);
+require("./routes/product.routes")(app);
 
 //port listener
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
